@@ -4,7 +4,7 @@ public class ImmutableArrayList implements ImmutableList {
     private int size;
     private Object[] content;
 
-    private void checkIndex(int index){
+    private void checkIndex(int index) {
     /*
         Auxiliary function for checking whether index is valid
          */
@@ -13,12 +13,12 @@ public class ImmutableArrayList implements ImmutableList {
         }
     }
 
-    public ImmutableArrayList(){
+    public ImmutableArrayList() {
         this.size = 0;
         this.content = new Object[size];
     }
 
-    public ImmutableArrayList(Object[] arg){
+    public ImmutableArrayList(Object[] arg) {
         this.size = arg.length;
         this.content = arg;
     }
@@ -120,7 +120,7 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < size; i++) {
             result.append(" " + content[i]);

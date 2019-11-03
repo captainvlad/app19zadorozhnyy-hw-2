@@ -4,18 +4,18 @@ import ua.edu.ucu.collections.immutable.ImmutableLinkedList;
 public class Queue {
     private ImmutableLinkedList content;
 
-    public Queue(){
+    public Queue() {
         content = new ImmutableLinkedList();
     }
 
-    public Object peek(){
+    public Object peek() {
         if (content.size() == 0){
             throw new IndexOutOfBoundsException("Queue is empty!");
         }
         return content.getFirst();
     }
 
-    public Object dequeue(){
+    public Object dequeue() {
         if (content.size() == 0){
             throw new IndexOutOfBoundsException("Queue is empty!");
         }
