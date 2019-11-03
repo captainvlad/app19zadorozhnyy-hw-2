@@ -98,7 +98,9 @@ public class ImmutableLinkedList implements ImmutableList {
         result.tail = e;
         while (n != null) {
             result.insert(n.data);
-            result.tail = n.next == null ? n.data: result.tail;
+            if (n.next == null) {
+                result.tail =  n.data;
+            }
             n = n.next;
         }
         result.size = size + 1;
@@ -117,7 +119,9 @@ public class ImmutableLinkedList implements ImmutableList {
         Node n = head;
         for (int i = 0; i < index; i++) {
             result.insert(n.data);
-            result.tail = n.next == null ? n.data: result.tail;
+            if (n.next == null) {
+                result.tail =  n.data;
+            }
             n = n.next;
         }
         for (int i = 0; i < c.length; i++) {
@@ -127,7 +131,9 @@ public class ImmutableLinkedList implements ImmutableList {
         while (n != null) {
             result.insert(n.data);
             System.out.println(n.next);
-            result.tail = n.next == null ? n.data: result.tail;
+            if (n.next == null) {
+                result.tail =  n.data;
+            }
             n = n.next;
         }
         result.size = size + c.length;
@@ -199,7 +205,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public Object[] toArray() {
-        Object result[] = new Object[size()];
+        Object[] result = new Object[size()];
         Node n = head;
         for (int i = 0; i < size(); i++) {
             result[i] = n.data;
