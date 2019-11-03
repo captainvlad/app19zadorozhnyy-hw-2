@@ -9,14 +9,14 @@ public class Queue {
     }
 
     public Object peek() {
-        if (content.size() == 0){
+        if (content.size() == 0) {
             throw new IndexOutOfBoundsException("Queue is empty!");
         }
         return content.getFirst();
     }
 
     public Object dequeue() {
-        if (content.size() == 0){
+        if (content.size() == 0) {
             throw new IndexOutOfBoundsException("Queue is empty!");
         }
         Object result = content.getFirst();
@@ -24,7 +24,7 @@ public class Queue {
         return result;
     }
 
-    public void enqueue(Object e){
+    public void enqueue(Object e) {
         content = content.addLast(e);
     }
 }

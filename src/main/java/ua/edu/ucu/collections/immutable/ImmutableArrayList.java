@@ -4,14 +4,6 @@ public class ImmutableArrayList implements ImmutableList {
     private int size;
     private Object[] content;
 
-    private void checkIndex(int index) {
-    /*
-        Auxiliary function for checking whether index is valid
-         */
-        if (index > size || index < 0){
-            throw new IndexOutOfBoundsException("Index does not exist!");
-        }
-    }
 
     public ImmutableArrayList() {
         this.size = 0;
@@ -28,6 +20,15 @@ public class ImmutableArrayList implements ImmutableList {
         return add(size(), e);
     }
 
+    private void checkIndex(int index) {
+    /*
+        Auxiliary function for checking whether index is valid
+         */
+        if (index > size || index < 0) {
+            throw new IndexOutOfBoundsException("Index does not exist!");
+        }
+    }
+
     @Override
     public  ImmutableArrayList add(int index, Object e) {
         checkIndex(index);
@@ -35,7 +36,8 @@ public class ImmutableArrayList implements ImmutableList {
         result.content = new Object[content.length + 1];
         System.arraycopy(content, 0, result.content, 0, index);
         result.content[index] = e;
-        System.arraycopy(content, index, result.content, index + 1, content.length - index);
+        System.arraycopy(content, index, result.content,
+                index + 1, content.length - index);
         result.size = size + 1;
         return result;
     }
@@ -90,7 +92,7 @@ public class ImmutableArrayList implements ImmutableList {
     @Override
     public int indexOf(Object e) {
         for (int i = 0; i < size; i++) {
-            if (content[i] == e){
+            if (content[i] == e) {
                 return i;
             }
         }

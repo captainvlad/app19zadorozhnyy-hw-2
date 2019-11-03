@@ -9,14 +9,14 @@ public class Stack {
     }
 
     public Object peek() {
-        if (content.size() == 0){
+        if (content.size() == 0) {
             throw new IndexOutOfBoundsException("Stack is empty!");
         }
         return content.getLast();
     }
 
     public Object pop() {
-        if (content.size() == 0){
+        if (content.size() == 0) {
             throw new IndexOutOfBoundsException("Stack is empty!");
         }
         Object result = peek();

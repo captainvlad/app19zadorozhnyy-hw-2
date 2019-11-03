@@ -6,29 +6,29 @@ public class ImmutableLinkedList implements ImmutableList {
     private Object tail;
 
     private static class Node {
-        Object data;
-        Node next;
+        private Object data;
+        private Node next;
     }
 
-    public ImmutableLinkedList(){
+    public ImmutableLinkedList() {
         head = null;
         size = 0;
     }
 
-    private void checkIndex(int index){
+    private void checkIndex(int index) {
     /*
         Auxiliary function for checking whether index is valid
          */
-        if (index > size() || index < 0){
+        if (index > size() || index < 0) {
             throw new IndexOutOfBoundsException("Index does not exist!");
         }
     }
 
-    private void checkEmpty(){
+    private void checkEmpty() {
     /*
         Auxiliary function for checking whether collection is not empty
          */
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new IndexOutOfBoundsException("Empty collection!");
         }
     }
@@ -52,30 +52,30 @@ public class ImmutableLinkedList implements ImmutableList {
         }
     }
 
-    public ImmutableLinkedList addFirst(Object e){
+    public ImmutableLinkedList addFirst(Object e) {
         return add(0, e);
     }
 
-    public ImmutableLinkedList addLast(Object e){
+    public ImmutableLinkedList addLast(Object e) {
         return add(e);
     }
 
-    public Object getFirst(){
+    public Object getFirst() {
         checkEmpty();
         return get(0);
     }
 
-    public Object getLast(){
+    public Object getLast() {
         checkEmpty();
         return tail;
     }
 
-    public ImmutableLinkedList removeFirst(){
+    public ImmutableLinkedList removeFirst() {
         checkEmpty();
         return remove(0);
     }
 
-    public ImmutableLinkedList removeLast(){
+    public ImmutableLinkedList removeLast() {
         checkEmpty();
         return remove(size() - 1);
     }
@@ -96,7 +96,7 @@ public class ImmutableLinkedList implements ImmutableList {
         }
         result.insert(e);
         result.tail = e;
-        while (n != null){
+        while (n != null) {
             result.insert(n.data);
             result.tail = n.next == null ? n.data: result.tail;
             n = n.next;
@@ -124,7 +124,7 @@ public class ImmutableLinkedList implements ImmutableList {
             result = result.add(c[i]);
         }
         result.tail = c[c.length - 1];
-        while (n != null){
+        while (n != null) {
             result.insert(n.data);
             System.out.println(n.next);
             result.tail = n.next == null ? n.data: result.tail;
@@ -172,7 +172,7 @@ public class ImmutableLinkedList implements ImmutableList {
     public int indexOf(Object e) {
         Node n = head;
         for (int i = 0; i < size(); i++) {
-            if (n.data == e){
+            if (n.data == e) {
                 return i;
             }
             n = n.next;
@@ -209,10 +209,10 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuffer result = new StringBuffer();
         Node n = head;
-        while (n != null){
+        while (n != null) {
             result.append(n.data + " ");
             n = n.next;
         }
