@@ -7,7 +7,8 @@ public interface ImmutableList {
     ImmutableList add(Object e);
     //додає елемент у кінець колекції
 
-    ImmutableList add(int index, Object e); //додає елемент до колекції за індексом,
+    ImmutableList add(int index, Object e); //додає елемент до колекції за
+    // індексом,
     // та кидає виключну ситуацію, якщо індекс виходить за межі колекції
 
     ImmutableList addAll(Object[] c); //додає масив
@@ -25,7 +26,8 @@ public interface ImmutableList {
     // та кидає виключну ситуацію, якщо індекс
     // виходить за межі колекції
 
-    ImmutableList set(int index, Object e); //змінює значення елементу за індексом,
+    ImmutableList set(int index, Object e); //змінює значення
+    // елементу за індексом,
     // та кидає виключну ситуацію, якщо індекс виходить за межі колекції
 
     int indexOf(Object e); //шукає індекс елемента (повертає індекс
