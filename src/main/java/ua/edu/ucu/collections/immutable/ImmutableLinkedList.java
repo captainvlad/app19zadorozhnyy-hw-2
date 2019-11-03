@@ -15,7 +15,7 @@ public class ImmutableLinkedList implements ImmutableList {
         size = 0;
     }
 
-    private void CheckIndex(int index){
+    private void checkIndex(int index){
     /*
         Auxiliary function for checking whether index is valid
          */
@@ -24,7 +24,7 @@ public class ImmutableLinkedList implements ImmutableList {
         }
     }
 
-    private void CheckEmpty(){
+    private void checkEmpty(){
     /*
         Auxiliary function for checking whether collection is not empty
          */
@@ -61,22 +61,22 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public Object getFirst(){
-        CheckEmpty();
+        checkEmpty();
         return get(0);
     }
 
     public Object getLast(){
-        CheckEmpty();
+        checkEmpty();
         return tail;
     }
 
     public ImmutableLinkedList removeFirst(){
-        CheckEmpty();
+        checkEmpty();
         return remove(0);
     }
 
     public ImmutableLinkedList removeLast(){
-        CheckEmpty();
+        checkEmpty();
         return remove(size() - 1);
     }
 
@@ -87,7 +87,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableLinkedList add(int index, Object e) {
-        CheckIndex(index);
+        checkIndex(index);
         ImmutableLinkedList result = new ImmutableLinkedList();
         Node n = head;
         for (int i = 0; i < index; i++) {
@@ -112,7 +112,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableLinkedList addAll(int index, Object[] c) {
-        CheckIndex(index);
+        checkIndex(index);
         ImmutableLinkedList result = new ImmutableLinkedList();
         Node n = head;
         for (int i = 0; i < index; i++) {
@@ -136,7 +136,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public Object get(int index) {
-        CheckIndex(index);
+        checkIndex(index);
         Node a = head;
         for (int i = 0; i < index; i++) {
             a = a.next;
@@ -146,7 +146,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableLinkedList remove(int index) {
-        CheckIndex(index);
+        checkIndex(index);
         ImmutableLinkedList result = new ImmutableLinkedList();
         Node a = head;
         for (int i = 0; i < this.size(); i++) {
@@ -162,7 +162,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableLinkedList set(int index, Object e) {
-        CheckIndex(index);
+        checkIndex(index);
         ImmutableLinkedList result = this.remove(index);
         result = result.add(index, e);
         return result;
@@ -210,12 +210,12 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public String toString(){
-        String result = new String();
+        StringBuffer result = new StringBuffer();
         Node n = head;
         while (n != null){
-            result += n.data + " ";
+            result.append(n.data + " ");
             n = n.next;
         }
-        return result;
+        return result.toString();
     }
 }

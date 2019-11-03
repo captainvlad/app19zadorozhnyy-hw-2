@@ -4,7 +4,7 @@ public class ImmutableArrayList implements ImmutableList {
     private int size;
     private Object[] content;
 
-    private void CheckIndex(int index){
+    private void checkIndex(int index){
     /*
         Auxiliary function for checking whether index is valid
          */
@@ -30,7 +30,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public  ImmutableArrayList add(int index, Object e) {
-        CheckIndex(index);
+        checkIndex(index);
         ImmutableArrayList result = new ImmutableArrayList();
         result.content = new Object[content.length + 1];
         System.arraycopy(content, 0, result.content, 0, index);
@@ -47,7 +47,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableArrayList addAll(int index, Object[] c) {
-        CheckIndex(index);
+        checkIndex(index);
         ImmutableArrayList result = new ImmutableArrayList();
         result.size = c.length + size;
         result.content = new Object[size + c.length];
@@ -61,13 +61,13 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public Object get(int index) {
-        CheckIndex(index);
+        checkIndex(index);
         return content[index];
     }
 
     @Override
     public ImmutableArrayList remove(int index) {
-        CheckIndex(index);
+        checkIndex(index);
 
         ImmutableArrayList result = new ImmutableArrayList();
         result.content = new Object[content.length - 1];
@@ -81,7 +81,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableArrayList set(int index, Object e) {
-        CheckIndex(index);
+        checkIndex(index);
         ImmutableArrayList result = remove(index);
         result = result.add(index, e);
         return result;
@@ -121,10 +121,10 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public String toString(){
-        String result = new String();
+        StringBuffer result = new StringBuffer();
         for (int i = 0; i < size; i++) {
-            result += " " + content[i];
+            result.append(" " + content[i]);
         }
-        return result;
+        return result.toString();
     }
 }
