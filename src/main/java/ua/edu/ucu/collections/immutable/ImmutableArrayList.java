@@ -12,7 +12,8 @@ public class ImmutableArrayList implements ImmutableList {
 
     public ImmutableArrayList(Object[] arg) {
         this.size = arg.length;
-        this.content = arg;
+        this.content = new Object[size];
+        System.arraycopy(arg, 0, this.content, 0, arg.length);
     }
 
     @Override
@@ -118,7 +119,9 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public Object[] toArray() {
-        return content;
+        Object[] result = new Object[size];
+        System.arraycopy(content, 0, result, 0, size);
+        return result;
     }
 
     @Override
