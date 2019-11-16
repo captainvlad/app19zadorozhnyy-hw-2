@@ -97,10 +97,10 @@ public class ImmutableArrayList implements ImmutableList {
         }
         for (int i = 0; i < size; i++) {
             if (content[i] == e) {
-                return new Integer(i);
+                return i;
             }
         }
-        return new Integer(-1);
+        return -1;
     }
 
     @Override

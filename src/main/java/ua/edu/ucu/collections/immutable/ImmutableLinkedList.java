@@ -181,11 +181,11 @@ public class ImmutableLinkedList implements ImmutableList {
         Node n = head;
         for (int i = 0; i < size(); i++) {
             if (n.data == e) {
-                return new Integer(i);
+                return i;
             }
             n = n.next;
         }
-        return new Integer(-1);
+        return -1;
     }
 
     @Override
