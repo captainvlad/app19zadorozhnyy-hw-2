@@ -92,12 +92,15 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public int indexOf(Object e) {
+        if (e instanceof Integer){
+            e = (((Integer) e).intValue());
+        }
         for (int i = 0; i < size; i++) {
             if (content[i] == e) {
-                return i;
+                return new Integer(i);
             }
         }
-        return -1;
+        return new Integer(-1);
     }
 
     @Override

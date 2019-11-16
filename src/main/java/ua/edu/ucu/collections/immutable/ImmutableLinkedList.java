@@ -125,12 +125,11 @@ public class ImmutableLinkedList implements ImmutableList {
             n = n.next;
         }
         for (int i = 0; i < c.length; i++) {
-            result = result.add(c[i]);
+            result.insert(c[i]);
         }
         result.tail = c[c.length - 1];
         while (n != null) {
             result.insert(n.data);
-            System.out.println(n.next);
             if (n.next == null) {
                 result.tail =  n.data;
             }
@@ -176,14 +175,17 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public int indexOf(Object e) {
+        if (e instanceof Integer){
+            e = (((Integer) e).intValue());
+        }
         Node n = head;
         for (int i = 0; i < size(); i++) {
             if (n.data == e) {
-                return i;
+                return new Integer(i);
             }
             n = n.next;
         }
-        return -1;
+        return new Integer(-1);
     }
 
     @Override
