@@ -1,6 +1,6 @@
 package ua.edu.ucu.collections.immutable;
 
-public class ImmutableArrayList implements ImmutableList {
+public final class ImmutableArrayList implements ImmutableList {
     private int size;
     private Object[] content;
 
@@ -92,11 +92,8 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public int indexOf(Object e) {
-        if (e instanceof Integer){
-            e = ((Integer) e).intValue();
-        }
         for (int i = 0; i < size; i++) {
-            if (content[i] == e) {
+            if (content[i].equals(e)) {
                 return i;
             }
         }
@@ -116,8 +113,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public boolean isEmpty() {
-        boolean empty = size() == 0;
-        return empty;
+        return size() == 0;
     }
 
     @Override

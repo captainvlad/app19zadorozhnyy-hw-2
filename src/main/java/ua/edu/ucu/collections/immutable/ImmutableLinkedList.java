@@ -1,6 +1,6 @@
 package ua.edu.ucu.collections.immutable;
 
-public class ImmutableLinkedList implements ImmutableList {
+public final class ImmutableLinkedList implements ImmutableList {
     private Node head;
     private int size;
     private Object tail;
@@ -175,12 +175,9 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public int indexOf(Object e) {
-        if (e instanceof Integer){
-            e = ((Integer) e).intValue();
-        }
         Node n = head;
         for (int i = 0; i < size(); i++) {
-            if (n.data == e) {
+            if (n.data.equals(e)) {
                 return i;
             }
             n = n.next;
@@ -201,8 +198,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public boolean isEmpty() {
-        boolean result = size() == 0;
-        return result;
+        return size() == 0;
     }
 
     @Override
