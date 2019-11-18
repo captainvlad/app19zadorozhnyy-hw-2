@@ -99,7 +99,7 @@ public final class ImmutableLinkedList implements ImmutableList {
         while (n != null) {
             result.insert(n.data);
             if (n.next == null) {
-                result.tail =  n.data;
+                result.tail = n.data;
             }
             n = n.next;
         }
@@ -120,7 +120,7 @@ public final class ImmutableLinkedList implements ImmutableList {
         for (int i = 0; i < index; i++) {
             result.insert(n.data);
             if (n.next == null) {
-                result.tail =  n.data;
+                result.tail = n.data;
             }
             n = n.next;
         }
@@ -131,7 +131,7 @@ public final class ImmutableLinkedList implements ImmutableList {
         while (n != null) {
             result.insert(n.data);
             if (n.next == null) {
-                result.tail =  n.data;
+                result.tail = n.data;
             }
             n = n.next;
         }
@@ -176,11 +176,20 @@ public final class ImmutableLinkedList implements ImmutableList {
     @Override
     public int indexOf(Object e) {
         Node n = head;
-        for (int i = 0; i < size(); i++) {
-            if (n.data.equals(e)) {
-                return i;
+        if (e == null) {
+            for (int i = 0; i < size(); i++) {
+                if (n.data == null) {
+                    return i;
+                }
+                n = n.next;
             }
-            n = n.next;
+        } else {
+            for (int i = 0; i < size(); i++) {
+                if (n.data != null && n.data.equals(e)) {
+                    return i;
+                }
+                n = n.next;
+            }
         }
         return -1;
     }

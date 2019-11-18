@@ -78,7 +78,7 @@ public class ImmutableArrayListTest {
     }
 
     @Test
-    public void indexOf() {
+    public void t_indexOf() {
         assertEquals(example_3.indexOf(null), 3);
         assertEquals(example_3.indexOf("unexistable"), -1);
         assertEquals(example_2.indexOf(1), -1);
