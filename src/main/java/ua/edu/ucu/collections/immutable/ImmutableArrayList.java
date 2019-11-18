@@ -98,7 +98,7 @@ public final class ImmutableArrayList implements ImmutableList {
                     return i;
                 }
             }
-        } else {
+        } else{
             for (int k = 0; k < size; k++) {
                 if (content[k] != null && content[k].equals(e)) {
                     return k;
