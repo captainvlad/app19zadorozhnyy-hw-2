@@ -176,7 +176,7 @@ public class ImmutableLinkedList implements ImmutableList {
     @Override
     public int indexOf(Object e) {
         if (e instanceof Integer){
-            e = (((Integer) e).intValue());
+            e = ((Integer) e).intValue();
         }
         Node n = head;
         for (int i = 0; i < size(); i++) {
