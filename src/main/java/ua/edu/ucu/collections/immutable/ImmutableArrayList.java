@@ -32,15 +32,7 @@ public final class ImmutableArrayList implements ImmutableList {
 
     @Override
     public  ImmutableArrayList add(int index, Object e) {
-        checkIndex(index);
-        ImmutableArrayList result = new ImmutableArrayList();
-        result.content = new Object[content.length + 1];
-        System.arraycopy(content, 0, result.content, 0, index);
-        result.content[index] = e;
-        System.arraycopy(content, index, result.content,
-                index + 1, content.length - index);
-        result.size = size + 1;
-        return result;
+        return addAll(index, new Object[]{e});
     }
 
     @Override

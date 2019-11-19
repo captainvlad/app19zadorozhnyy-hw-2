@@ -87,24 +87,7 @@ public final class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableLinkedList add(int index, Object e) {
-        checkIndex(index);
-        ImmutableLinkedList result = new ImmutableLinkedList();
-        Node n = head;
-        for (int i = 0; i < index; i++) {
-            result.insert(n.data);
-            n = n.next;
-        }
-        result.insert(e);
-        result.tail = e;
-        while (n != null) {
-            result.insert(n.data);
-            if (n.next == null) {
-                result.tail = n.data;
-            }
-            n = n.next;
-        }
-        result.size = size + 1;
-        return result;
+        return addAll(index, new Object[]{e});
     }
 
     @Override
